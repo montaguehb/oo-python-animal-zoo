@@ -40,12 +40,12 @@ class Zoo_Test(unittest.TestCase):
         zoo = Zoo(name=self.name, location=self.location)
         zoo1 = Zoo(name="Georgia zoo", location="Georgia")
         
-        animal = Animal(species="rat", number=0, nickname="ratty", zoo=zoo)
-        animal1 = Animal(species="rat", number=1, nickname="Mr boombastic", zoo=zoo)
-        animal2 = Animal(species="cat", number=2, nickname="Octavian", zoo=zoo)
-        animal3 = Animal(species="dog", number=3, nickname="Juno", zoo=zoo)
-        animal4 = Animal(species="rat", number=0, nickname="ratty", zoo=zoo1)
-        animal5 = Animal(species="rat", number=1, nickname="mr boombastic", zoo=zoo1)
+        animal = Animal(species="rat", weight=0, nickname="ratty", zoo=zoo)
+        animal1 = Animal(species="rat", weight=1, nickname="Mr boombastic", zoo=zoo)
+        animal2 = Animal(species="cat", weight=2, nickname="Octavian", zoo=zoo)
+        animal3 = Animal(species="dog", weight=3, nickname="Juno", zoo=zoo)
+        animal4 = Animal(species="rat", weight=0, nickname="ratty", zoo=zoo1)
+        animal5 = Animal(species="rat", weight=1, nickname="mr boombastic", zoo=zoo1)
         
         self.assertListEqual([animal, animal1, animal2, animal3],zoo.animals())
         self.assertListEqual([animal4, animal5],zoo.animals())
@@ -54,12 +54,12 @@ class Zoo_Test(unittest.TestCase):
         zoo = Zoo(name=self.name, location=self.location)
         zoo1 = Zoo(name="Georgia zoo", location="Georgia")
         
-        Animal(species="rat", number=0, nickname="ratty", zoo=zoo)
-        Animal(species="rat", number=1, nickname="Mr boombastic", zoo=zoo)
-        Animal(species="cat", number=2, nickname="Octavian", zoo=zoo)
-        Animal(species="dog", number=3, nickname="Juno", zoo=zoo)
-        Animal(species="rat", number=0, nickname="ratty", zoo=zoo1)
-        Animal(species="cat", number=1, nickname="mr boombastic", zoo=zoo1)
+        Animal(species="rat", weight=0, nickname="ratty", zoo=zoo)
+        Animal(species="rat", weight=1, nickname="Mr boombastic", zoo=zoo)
+        Animal(species="cat", weight=2, nickname="Octavian", zoo=zoo)
+        Animal(species="dog", weight=3, nickname="Juno", zoo=zoo)
+        Animal(species="rat", weight=0, nickname="ratty", zoo=zoo1)
+        Animal(species="cat", weight=1, nickname="mr boombastic", zoo=zoo1)
 
         self.assertListEqual(["cat", "rat", "dog"] == zoo.animal_species())
         self.assertListEqual(["cat", "rat"] == zoo1.animal_species())
@@ -68,10 +68,10 @@ class Zoo_Test(unittest.TestCase):
         zoo = Zoo(name=self.name, location=self.location)
         zoo1 = Zoo(name="Georgia zoo", location="Georgia")
         
-        animal = Animal(species="rat", number=0, nickname="ratty", zoo=zoo)
-        animal1 = Animal(species="rat", number=1, nickname="Mr boombastic", zoo=zoo)
-        animal3 = Animal(species="dog", number=3, nickname="Juno", zoo=zoo)
-        animal5 = Animal(species="cat", number=1, nickname="mr boombastic", zoo=zoo1)
+        animal = Animal(species="rat", weight=0, nickname="ratty", zoo=zoo)
+        animal1 = Animal(species="rat", weight=1, nickname="Mr boombastic", zoo=zoo)
+        animal3 = Animal(species="dog", weight=3, nickname="Juno", zoo=zoo)
+        animal5 = Animal(species="cat", weight=1, nickname="mr boombastic", zoo=zoo1)
         
         self.assertListEqual([animal, animal1], zoo.find_by_species("rat"))
         self.assertListEqual([animal3], zoo.find_by_species("dog"))
@@ -81,12 +81,12 @@ class Zoo_Test(unittest.TestCase):
         zoo = Zoo(name=self.name, location=self.location)
         zoo1 = Zoo(name="Georgia zoo", location="Georgia")
         
-        animal = Animal(species="rat", number=0, nickname="ratty", zoo=zoo)
-        animal1 = Animal(species="rat", number=1, nickname="Mr boombastic", zoo=zoo)
-        animal2 = Animal(species="cat", number=2, nickname="Octavian", zoo=zoo)
-        animal3 = Animal(species="dog", number=3, nickname="Juno", zoo=zoo)
-        animal4 = Animal(species="rat", number=0, nickname="ratty", zoo=zoo1)
-        animal5 = Animal(species="cat", number=1, nickname="mr boombastic", zoo=zoo1)
+        animal = Animal(species="rat", weight=0, nickname="ratty", zoo=zoo)
+        animal1 = Animal(species="rat", weight=1, nickname="Mr boombastic", zoo=zoo)
+        animal2 = Animal(species="cat", weight=2, nickname="Octavian", zoo=zoo)
+        animal3 = Animal(species="dog", weight=3, nickname="Juno", zoo=zoo)
+        animal4 = Animal(species="rat", weight=0, nickname="ratty", zoo=zoo1)
+        animal5 = Animal(species="cat", weight=1, nickname="mr boombastic", zoo=zoo1)
         
         self.assertListEqual(
             [animal1.nickname, animal.nickname, animal2.nickname, animal3.nickname],
