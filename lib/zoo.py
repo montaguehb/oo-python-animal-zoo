@@ -1,4 +1,4 @@
-from lib.animal import Animal
+from animal import Animal
 
 class Zoo:
     
@@ -30,3 +30,25 @@ class Zoo:
             self._location = location
         else:
             raise AttributeError
+    
+    def animals(self):
+        return [animal for animal in Animal.all if animal.zoo is self]
+    
+    def animal_species(self):
+        species = set()
+        for animal in Animal.all:
+            if animal.species in species or animal.zoo is not self:
+                continue
+            species.add(animal.species)
+             
+        return species
+    
+    def find_by_species(self, species):
+        return [animal for animal in Animal.all if animal.species == species]
+    
+    def animal_nicknames(self):
+        return [animal.nickname for animal in Animal.all if animal.zoo is self]
+    
+    @classmethod
+    def find_by_location(cls, location):
+        return [zoo for zoo in cls.all if zoo.location == location]

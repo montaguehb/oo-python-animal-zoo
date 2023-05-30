@@ -7,6 +7,8 @@ class Animal_Test(unittest.TestCase):
     location = "NY"
     
     def test_animal_species(self):
+        Zoo.all = []
+        Animal.all = []
         zoo = Zoo(name=self.name, location=self.location)
         animal = Animal(species="rat", weight=0, nickname="ratty", zoo=zoo)
         
@@ -16,6 +18,8 @@ class Animal_Test(unittest.TestCase):
         self.assertEqual(animal.species, "rat")
         
     def test_animal_species_immutable(self):
+        Zoo.all = []
+        Animal.all = []
         zoo = Zoo(name=self.name, location=self.location)
         animal = Animal(species="rat", weight=0, nickname="ratty", zoo=zoo)
         
@@ -23,6 +27,8 @@ class Animal_Test(unittest.TestCase):
             animal.species = "cat"
             
     def test_animal_nickname(self):
+        Zoo.all = []
+        Animal.all = []
         zoo = Zoo(name=self.name, location=self.location)
         animal = Animal(species="rat", weight=0, nickname="ratty", zoo=zoo)
         
@@ -30,6 +36,8 @@ class Animal_Test(unittest.TestCase):
         self.assertEqual(animal.nickname, "ratty")
     
     def test_animal_nickname_immutable(self):
+        Zoo.all = []
+        Animal.all = []
         zoo = Zoo(name=self.name, location=self.location)
         animal = Animal(species="rat", weight=0, nickname="ratty", zoo=zoo)
         
@@ -37,6 +45,8 @@ class Animal_Test(unittest.TestCase):
             animal.nickname = "not ratty"
     
     def test_animal_weight(self):
+        Zoo.all = []
+        Animal.all = []
         zoo = Zoo(name=self.name, location=self.location)
         animal = Animal(species="rat", weight=0, nickname="ratty", zoo=zoo)
 
@@ -46,6 +56,8 @@ class Animal_Test(unittest.TestCase):
         self.assertEqual(animal.weight, 200)
     
     def test_has_all_animals(self):
+        Zoo.all = []
+        Animal.all = []
         zoo = Zoo(name=self.name, location=self.location)
         zoo1 = Zoo(name="Georgia zoo", location="Georgia")
         
@@ -60,6 +72,8 @@ class Animal_Test(unittest.TestCase):
                              Animal.all)
     
     def test_return_zoo(self):
+        Zoo.all = []
+        Animal.all = []
         zoo = Zoo(name=self.name, location=self.location)
         zoo1 = Zoo(name="Georgia zoo", location="Georgia")
         
@@ -70,6 +84,8 @@ class Animal_Test(unittest.TestCase):
         self.assertTrue(animal1.zoo is zoo1)
     
     def test_find_by_species(self):
+        Zoo.all = []
+        Animal.all = []
         zoo = Zoo(name=self.name, location=self.location)
         zoo1 = Zoo(name="Georgia zoo", location="Georgia")
         
@@ -78,6 +94,6 @@ class Animal_Test(unittest.TestCase):
         animal3 = Animal(species="dog", weight=3, nickname="Juno", zoo=zoo)
         animal5 = Animal(species="cat", weight=1, nickname="mr boombastic", zoo=zoo1)
         
-        self.assertListEqual([animal, animal1], animal.find_by_species("rat"))
-        self.assertListEqual([animal3], animal.find_by_species("dog"))
-        self.assertListEqual([animal5], animal5.find_by_species("cat"))
+        self.assertCountEqual([animal, animal1], Animal.find_by_species("rat"))
+        self.assertCountEqual([animal3], Animal.find_by_species("dog"))
+        self.assertCountEqual([animal5], Animal.find_by_species("cat"))
